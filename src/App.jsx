@@ -60,8 +60,8 @@ function Strands({ reduce }) {
 }
 
 const SERVICES = [
-  { title: "Haare", text: "Damen, Herren & Kinder", detail: "Schnitt, Waschen/Föhnen, Colorationen, Strähnen/Balayage, Styling" },
-  { title: "Nails", text: "Gepflegte Hände", detail: "Maniküre, Nagelmodellage (Gel/Acryl), Nail Art, Shellac/Gellack" },
+  { title: "Haare", text: "Für Damen, Herren und Kinder", detail: "Ein Schnitt, der zu Ihnen passt, dazu Waschen und Föhnen, Colorationen, Strähnen und Balayage. Zum Schluss ein Styling, mit dem Sie gerne in den Spiegel schauen." },
+  { title: "Nails", text: "Hände, die auffallen", detail: "Gepflegte Maniküre, Nagelmodellage in Gel oder Acryl, langanhaltender Shellac und Gellack. Auf Wunsch mit kreativer Nail Art, ganz nach Ihrem Geschmack." },
 ];
 
 function Hero() {
@@ -72,7 +72,7 @@ function Hero() {
   const yOrb = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const word = { hidden: { y: "110%" }, show: (i) => ({ y: 0, transition: { duration: .9, delay: .25 + i * .09, ease: [.22, 1, .36, 1] } }) };
   const fade = (d) => ({ initial: { opacity: 0, y: 24 }, animate: { opacity: 1, y: 0 }, transition: { duration: .8, delay: d, ease: [.22, 1, .36, 1] } });
-  const lines = [["Schönes", "Haar."], ["Gepflegte", "Nägel."]];
+  const lines = [["Haar", "&", "Nägel,"], ["mit", "Herz", "gestaltet."]];
   let n = 0;
 
   return (
@@ -80,7 +80,7 @@ function Hero() {
       <motion.div className="orb" style={{ width: 340, height: 340, background: "var(--rose-soft)", opacity: .7, top: -100, left: -110, y: reduce ? 0 : yOrb }} />
       <motion.div className="strands-wrap" style={{ y: reduce ? 0 : yBg }}><Strands reduce={reduce} /></motion.div>
       <div className="wrap hero-inner">
-        <motion.div className="eyebrow" {...fade(.1)}><i />Bad Zurzach · Aargau</motion.div>
+        <motion.div className="eyebrow" {...fade(.1)}><i />Haare & Nails · Bad Zurzach</motion.div>
         <h1 className="h1">
           {lines.map((line, li) => (
             <span key={li} style={{ display: "block" }}>
@@ -88,7 +88,7 @@ function Hero() {
                 const i = n++;
                 return (
                   <span key={w} style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom", paddingBottom: ".12em", marginRight: ".25em" }}>
-                    <motion.span style={{ display: "inline-block" }} className={w === "Haar." || w === "Nägel." ? "it" : ""} variants={word} custom={i} initial="hidden" animate="show">{w}</motion.span>
+                    <motion.span style={{ display: "inline-block" }} className={w === "gestaltet." ? "it" : ""} variants={word} custom={i} initial="hidden" animate="show">{w}</motion.span>
                   </span>
                 );
               })}
@@ -96,11 +96,11 @@ function Hero() {
           ))}
         </h1>
         <motion.p className="lead" {...fade(.9)}>
-          Angi’s Hair und Nail Design an der Hauptstrasse 46: Schnitt, Farbe und Styling für Damen, Herren und Kinder, dazu Maniküre, Gel, Acryl und Nail Art. Alles an einem Ort, mit Zeit für Sie.
+          Willkommen bei Angi’s Hair und Nail Design an der Hauptstrasse 46. Ob frischer Schnitt, leuchtende Farbe oder perfekt gepflegte Nägel: Bei uns nehmen Sie sich Zeit für sich, und wir uns Zeit für Sie.
         </motion.p>
         <motion.div className="cta" {...fade(1.05)}>
-          <a className="btn btn-primary" href={TEL_HREF}><Phone size={17} />Termin vereinbaren</a>
-          <a className="btn btn-ghost" href="#leistungen"><Sparkles size={17} />Leistungen ansehen</a>
+          <a className="btn btn-primary" href={TEL_HREF}><Phone size={17} />Jetzt Termin vereinbaren</a>
+          <a className="btn btn-ghost" href="#leistungen"><Sparkles size={17} />Leistungen entdecken</a>
         </motion.div>
 
         <div className="services">
@@ -114,9 +114,9 @@ function Hero() {
         </div>
 
         <motion.div className="facts" {...fade(1.5)}>
-          <span><Phone size={16} />{TEL_TEXT}</span>
+          <span><Phone size={16} />Rufen Sie uns an: {TEL_TEXT}</span>
           <span><MapPin size={16} />Hauptstrasse 46, 5330 Bad Zurzach</span>
-          <span><Clock size={16} />Termine nach telefonischer Vereinbarung</span>
+          <span><Clock size={16} />Termine nach telefonischer Vereinbarung, damit Sie nie warten müssen</span>
           <span><Car size={16} />Parkplätze an der Hauptstrasse und in der Umgebung</span>
         </motion.div>
       </div>
