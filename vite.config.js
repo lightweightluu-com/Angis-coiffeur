@@ -1,14 +1,18 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 // App-Name und Farben hier anpassen – sie landen im Web-App-Manifest.
-const APP_NAME = 'Neue App';
-const APP_SHORT_NAME = 'App';
-const THEME_COLOR = '#14532d';
-const BACKGROUND_COLOR = '#f7f5ef';
+const APP_NAME = 'Angi’s Hair und Nail Design';
+const APP_SHORT_NAME = 'Angi’s';
+const THEME_COLOR = '#b9806a';
+const BACKGROUND_COLOR = '#f6efe9';
 
 export default defineConfig({
   plugins: [
+    react(),
+    tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],

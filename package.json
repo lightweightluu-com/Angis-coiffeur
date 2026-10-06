@@ -1,5 +1,5 @@
 {
-  "name": "pwa-template",
+  "name": "angis-coiffeur",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -9,7 +9,16 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "tailwindcss": "^4.3.3",
     "vite": "^6.3.0",
     "vite-plugin-pwa": "^1.0.0"
+  },
+  "dependencies": {
+    "framer-motion": "^14.0.0",
+    "lucide-react": "^1.52.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   }
 }
