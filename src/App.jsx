@@ -1,9 +1,15 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue, useReducedMotion } from "framer-motion";
-import { Phone, MapPin, Car, Clock, Menu, X, Sparkles } from "lucide-react";
+import Leistungen from "./sections/Leistungen.jsx";
+import Galerie from "./sections/Galerie.jsx";
+import UeberUns from "./sections/UeberUns.jsx";
+import Termin from "./sections/Termin.jsx";
+import Kontakt from "./sections/Kontakt.jsx";
+import Footer from "./sections/Footer.jsx";
+import { Phone, MapPin, Car, Clock, Menu, X, Sparkles, CalendarCheck } from "lucide-react";
 
 const LINKS = [
-  ["Leistungen", "#leistungen"], ["Galerie", "#galerie"], ["Über uns", "#ueber-uns"], ["Kontakt", "#kontakt"],
+  ["Leistungen", "#leistungen"], ["Galerie", "#galerie"], ["Über uns", "#ueber-uns"], ["Termin", "#termin"], ["Kontakt", "#kontakt"],
 ];
 const TEL_TEXT = "+41 56 249 18 62", TEL_HREF = "tel:+41562491862";
 
@@ -99,7 +105,7 @@ function Hero() {
           Willkommen bei Angi’s Hair und Nail Design an der Hauptstrasse 46. Ob frischer Schnitt, leuchtende Farbe oder perfekt gepflegte Nägel: Bei uns nehmen Sie sich Zeit für sich, und wir uns Zeit für Sie.
         </motion.p>
         <motion.div className="cta" {...fade(1.05)}>
-          <a className="btn btn-primary" href={TEL_HREF}><Phone size={17} />Jetzt Termin vereinbaren</a>
+          <a className="btn btn-primary" href="#termin"><CalendarCheck size={17} />Jetzt Termin vereinbaren</a>
           <a className="btn btn-ghost" href="#leistungen"><Sparkles size={17} />Leistungen entdecken</a>
         </motion.div>
 
@@ -125,7 +131,7 @@ function Hero() {
 }
 
 function App() {
-  return (<><Navigation /><main><Hero /></main></>);
+  return (<><Navigation /><main><Hero /><Leistungen /><Galerie /><UeberUns /><Termin /><Kontakt /></main><Footer /></>);
 }
 
 export default App;
